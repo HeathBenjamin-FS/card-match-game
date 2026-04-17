@@ -1,3 +1,135 @@
 html {
-  background: gray;
+  // background: #1c531d;
+  background: radial-gradient(circle at center, #153e16 0%, #4d874e 100%);
+  min-height: 100vh;
+  color: white;
+  letter-spacing: 0.05rem;
+
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    align-items: baseline;
+
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+
+    h1 {
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+  }
+
+  #gameScreen {
+    #cards {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 15px;
+      perspective: 1000px;
+      padding: 0;
+
+      .cardSlot {
+        list-style-type: none;
+        padding-left: none;
+        margin-left: none;
+        height: 200px;
+        width: 140px;
+        margin: auto;
+        cursor: pointer;
+
+        transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+        &:hover {
+          transform: translateY(-1rem);
+
+          .outerCard {
+            filter: brightness(1.3);
+          }
+        }
+
+        .innerCard {
+          width: 100%;
+          height: 100%;
+          position: relative;
+          transition: transform 0.6s;
+          transform-style: preserve-3d;
+
+          .outerCard {
+            background-size: cover;
+            background-position: center;
+            z-index: 2;
+          }
+
+          .cardFront {
+            background-color: white;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-family: sans-serif;
+            z-index: 1;
+            transform: rotateY(180deg);
+          }
+
+          .outerCard,
+          .cardFront {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px black;
+            backface-visibility: hidden;
+          }
+        }
+        &.flipped {
+          .innerCard {
+            transform: rotateY(180deg);
+          }
+        }
+      }
+    }
+  }
+  #gameReset {
+    text-align: center;
+    padding-top: 2rem;
+
+    #gameController {
+      padding: 1rem;
+      width: 50%;
+      font-size: larger;
+      background-color: #238ab6;
+      color: white;
+      border-radius: 1rem;
+      border: 1px solid black;
+      box-shadow: 0 2px 6px black;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+
+      &:active {
+        transform: translateY(5px);
+      }
+    }
+
+    #resultsScreen {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition:
+        max-height 0.6s ease,
+        opacity 0.4s ease;
+      margin-top: 1.5rem;
+
+      &.expanded {
+        max-height: 4rem;
+        opacity: 1;
+      }
+    }
+  }
 }

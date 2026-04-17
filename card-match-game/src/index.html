@@ -1,11 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New TypeScript/SCSS Project</title>
-</head>
-<body>
-  <script src="bundle.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Match!</title>
+  </head>
+  <body>
+    <header>
+      <div id="headerSep">
+        <h1>Card Match</h1>
+        <p id="attemptsCounterLeft">Use the x attempts you have to try and find the x matching pairs of cards!</p>
+      </div>
+
+      <h2 id="attemptsCounterRight">Attempts left:</h2>
+    </header>
+
+    <section id="gameScreen">
+      <ul id="cards"></ul>
+    </section>
+    <section id="gameReset">
+      <section id="resultsScreen" class="hidden">
+        <div id="results">
+          <h2 id="resultTitle"></h2>
+        </div>
+      </section>
+      <button type="button" id="gameController">Start</button>
+    </section>
+
+    <script src="bundle.js"></script>
+  </body>
 </html>
