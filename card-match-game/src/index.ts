@@ -97,7 +97,6 @@ const cardClickHandler = (clickedCard: HTMLElement): void => {
         cardA.classList.remove("flipped");
         cardB.classList.remove("flipped");
         selectedCard = [];
-        isLocked = false;
 
         if (attempts === 0) {
           const resultsScreen = document.querySelector("#resultsScreen") as HTMLElement;
@@ -107,6 +106,8 @@ const cardClickHandler = (clickedCard: HTMLElement): void => {
           resultsScreenTitle.innerHTML = `You lost. Try again!`;
 
           resultsScreen.className = "expanded";
+        } else {
+          isLocked = false;
         }
       }, 1000);
     }
